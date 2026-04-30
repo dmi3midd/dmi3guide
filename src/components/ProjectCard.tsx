@@ -24,7 +24,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         height: '100%',
       }}
     >
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '12px' }}>{project.title}</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+        <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{project.title}</h2>
+        {project.status && project.status !== 'completed' && (
+          <span style={{
+            fontSize: '0.75rem',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            padding: '4px 8px',
+            borderRadius: '12px',
+            backgroundColor: project.status === 'planned' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(250, 240, 230, 0.2)',
+            color: project.status === 'planned' ? 'var(--text-secondary)' : 'var(--text-main)',
+            whiteSpace: 'nowrap',
+            marginLeft: '12px'
+          }}>
+            {project.status === 'planned' ? 'Planned' : 'In Dev'}
+          </span>
+        )}
+      </div>
 
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', flexGrow: 1, lineHeight: 1.6 }}>
         {project.shortDescription}

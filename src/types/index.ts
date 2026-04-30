@@ -5,4 +5,5 @@ export interface Project {
   markdownFile: string;
   githubUrl: string;
   tags?: string[];
+  status?: 'completed' | 'in-development' | 'planned';
 }

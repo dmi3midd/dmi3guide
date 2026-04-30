@@ -4,7 +4,8 @@ import { Copy, Check } from 'lucide-react';
 interface Field {
   key: string;
   label: string;
-  placeholder: string;
+  placeholder?: string;
+  type?: 'string' | 'number' | 'boolean';
 }
 
 interface FormConfig {
@@ -63,28 +64,47 @@ export const InteractiveCommandForm: React.FC<{ configStr: string }> = ({ config
       </h4>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px', marginBottom: '20px' }}>
-        {config.fields.map(field => (
-          <div key={field.key} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{field.label} (--{field.key})</label>
-            <input
-              type="text"
-              placeholder={field.placeholder}
-              value={values[field.key]}
-              onChange={(e) => setValues({ ...values, [field.key]: e.target.value })}
-              style={{
-                padding: '8px 12px',
-                borderRadius: '6px',
-                border: '1px solid rgba(255,255,255,0.1)',
-                backgroundColor: 'var(--bg-main)',
-                color: 'var(--text-main)',
-                outline: 'none',
-                fontFamily: 'monospace'
-              }}
-              onFocus={(e) => e.target.style.border = '1px solid var(--accent)'}
-              onBlur={(e) => e.target.style.border = '1px solid rgba(255,255,255,0.1)'}
-            />
-          </div>
-        ))}
+        {config.fields.map(field => {
+          const isBoolean = field.type === 'boolean';
+          return (
+            <div key={field.key} style={{ display: 'flex', flexDirection: isBoolean ? 'row' : 'column', gap: '6px', alignItems: isBoolean ? 'center' : 'flex-start' }}>
+              <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{field.label} (--{field.key})</label>
+              {isBoolean ? (
+                <input
+                  type="checkbox"
+                  checked={values[field.key] === 'true'}
+                  onChange={(e) => setValues({ ...values, [field.key]: e.target.checked ? 'true' : 'false' })}
+                  style={{
+                    width: '18px',
+                    height: '18px',
+                    cursor: 'pointer',
+                    accentColor: 'var(--accent)'
+                  }}
+                />
+              ) : (
+                <input
+                  type={field.type === 'number' ? 'number' : 'text'}
+                  placeholder={field.placeholder || ''}
+                  value={values[field.key] || ''}
+                  onChange={(e) => setValues({ ...values, [field.key]: e.target.value })}
+                  style={{
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'var(--bg-main)',
+                    color: 'var(--text-main)',
+                    outline: 'none',
+                    fontFamily: 'monospace',
+                    width: '100%',
+                    boxSizing: 'border-box'
+                  }}
+                  onFocus={(e) => e.target.style.border = '1px solid var(--accent)'}
+                  onBlur={(e) => e.target.style.border = '1px solid rgba(255,255,255,0.1)'}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <div style={{ position: 'relative' }}>
