@@ -24,5 +24,20 @@
       "Authorization",
       "JWT"
     ]
+  },
+  {
+    "id": "papelane-cli",
+    "title": "Papelane CLI",
+    "shortDescription": "A CLI utility for managing files using Telegram Bot API to store them in the cloud.",
+    "markdownFile": "/content/pl-cli.md",
+    "githubUrl": "https://github.com/dmi3midd/papelane-cli",
+    "tags": [
+      "Go",
+      "CLI",
+      "Storage",
+      "Cloud",
+      "Docker",
+      "Telegram Bot API"
+    ]
   }
 ]
