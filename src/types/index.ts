@@ -3,5 +3,6 @@ export interface Project {
   title: string;
   shortDescription: string;
   markdownFile: string;
+  githubUrl: string;
   tags?: string[];
 }

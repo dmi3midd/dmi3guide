@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import type { Project } from '../types';
+import githubIcon from '../assets/github.svg';
 
 interface ProjectCardProps {
   project: Project;
@@ -48,19 +49,38 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       )}
 
-      <Link
-        to={`/project/${project.id}`}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          fontWeight: 600,
-          marginTop: 'auto',
-          alignSelf: 'flex-start'
-        }}
-      >
-        Open <ArrowRight size={18} />
-      </Link>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
+        <Link
+          to={`/project/${project.id}`}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontWeight: 600,
+          }}
+        >
+          Open <ArrowRight size={18} />
+        </Link>
+
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            color: 'var(--text-secondary)',
+          }}
+        >
+          <img
+            src={githubIcon}
+            alt="GitHub"
+            width={20}
+            height={20}
+            style={{ filter: 'invert(1) opacity(0.8)' }}
+          />
+        </a>
+      </div>
     </motion.div>
   );
 };

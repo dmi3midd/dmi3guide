@@ -4,6 +4,7 @@
     "title": "SeaURL",
     "shortDescription": "A simple and fast URL shortener service.",
     "markdownFile": "/content/seaurl.md",
+    "githubUrl": "https://github.com/dmi3midd/seaurl",
     "tags": [
       "Go",
       "Docker",
@@ -15,6 +16,7 @@
     "title": "Macauth",
     "shortDescription": "A lightweight SSO service designed for centralized authentication.",
     "markdownFile": "/content/macauth.md",
+    "githubUrl": "https://github.com/dmi3midd/macauth",
     "tags": [
       "Go",
       "Docker",

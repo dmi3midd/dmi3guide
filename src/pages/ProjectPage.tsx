@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Loader } from 'lucide-react';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { useProjects } from '../hooks/useProjects';
+import githubIcon from '../assets/github.svg';
 
 const ProjectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -42,7 +43,7 @@ const ProjectPage: React.FC = () => {
     fetchMarkdown();
   }, [project, projectsLoading, navigate]);
 
-  if (projectsLoading || (!project && !projectsLoading)) {
+  if (projectsLoading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
         <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
@@ -51,6 +52,8 @@ const ProjectPage: React.FC = () => {
       </div>
     );
   }
+
+  if (!project) return null;
 
   return (
     <motion.div
@@ -64,19 +67,41 @@ const ProjectPage: React.FC = () => {
         padding: '40px 24px 80px',
       }}
     >
-      <Link
-        to="/"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          marginBottom: '40px',
-          color: 'var(--text-secondary)',
-          fontWeight: 500,
-        }}
-      >
-        <ArrowLeft size={18} /> Back to list
-      </Link>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+        <Link
+          to="/"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            color: 'var(--text-secondary)',
+            fontWeight: 500,
+          }}
+        >
+          <ArrowLeft size={18} /> Back to list
+        </Link>
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            color: 'var(--text-secondary)',
+            fontWeight: 500,
+          }}
+        >
+          <img
+            src={githubIcon}
+            alt="GitHub"
+            width={18}
+            height={18}
+            style={{ filter: 'invert(1) opacity(0.8)' }}
+          />
+          View Source
+        </a>
+      </div>
 
       {markdownLoading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
