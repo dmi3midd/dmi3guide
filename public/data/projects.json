@@ -2,12 +2,25 @@
   {
     "id": "seaurl",
     "title": "SeaURL",
-    "shortDescription": "A simple and fast URL shortener service written in Go.",
+    "shortDescription": "A simple and fast URL shortener service.",
     "markdownFile": "/content/seaurl.md",
     "tags": [
       "Go",
       "Docker",
       "URL Shortener"
+    ]
+  },
+  {
+    "id": "macauth",
+    "title": "Macauth",
+    "shortDescription": "A lightweight SSO service designed for centralized authentication.",
+    "markdownFile": "/content/macauth.md",
+    "tags": [
+      "Go",
+      "Docker",
+      "SSO",
+      "Authorization",
+      "JWT"
     ]
   }
 ]

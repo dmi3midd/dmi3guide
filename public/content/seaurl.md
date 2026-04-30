@@ -1,28 +1,32 @@
 # SeaURL
 
-SeaURL is a simple and fast URL shortener service written in Go.
+## A simple and fast URL shortener service.
 
-## 🚀 How to Run
+## 🚀 Quick Start
 
 The project is configured for easy deployment using Docker and Docker Compose.
 
 ### Prerequisites
 - [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
 
-### Quick Start
+### 1. Clone the repository
+```bash
+git clone https://github.com/dmi3midd/seaurl
+cd seaurl
+```
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/dmi3midd/seaurl
-   cd seaurl
-   ```
+### 2. Initialize the environment
+Run the setup script.
+```bash
+./setup.sh
+```
 
-2. **Run the application using Docker:**
-   ```bash
-   docker compose up -d --build
-   ```
-
-The server will be up and running at: `http://localhost:2900`
+### 2. Start the service
+Run the application using Docker:
+```bash
+docker compose up -d --build
+```
+Your service is now up and running at `http://localhost:2900`.
 
 ---
 
@@ -78,4 +82,4 @@ curl -i http://localhost:2900/QWERTYUI
 **Response:**
 The server returns an HTTP status of `301 Moved Permanently` (or `303 See Other`) and includes the original link in the `Location` header, forcing the browser to instantly navigate to the target page.
 
-### Will be improved in the future with more features...
+## Will be improved in the future with more features...
