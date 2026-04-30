@@ -1,0 +1,13 @@
+[
+  {
+    "id": "seaurl",
+    "title": "SeaURL",
+    "shortDescription": "A simple and fast URL shortener service written in Go.",
+    "markdownFile": "/content/seaurl.md",
+    "tags": [
+      "Go",
+      "Docker",
+      "URL Shortener"
+    ]
+  }
+]
