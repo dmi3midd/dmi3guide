@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Copy, Check } from 'lucide-react';
+import { InteractiveCommandForm } from './InteractiveCommandForm';
 
 interface MarkdownRendererProps {
   content: string;
@@ -10,8 +11,12 @@ interface MarkdownRendererProps {
 
 const CodeBlock = ({ node, inline, className, children, ...props }: any) => {
   const [copied, setCopied] = useState(false);
-  const match = /language-(\w+)/.exec(className || '');
+  const match = /language-(\w+(?:-\w+)*)/.exec(className || '');
   const codeString = String(children).replace(/\n$/, '');
+
+  if (!inline && match && match[1] === 'interactive-command') {
+    return <InteractiveCommandForm configStr={codeString} />;
+  }
 
   const handleCopy = () => {
     navigator.clipboard.writeText(codeString);
