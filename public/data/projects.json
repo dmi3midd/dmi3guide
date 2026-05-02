@@ -3,6 +3,7 @@
     "id": "seaurl",
     "title": "SeaURL",
     "shortDescription": "A simple and fast URL shortener service.",
+    "status": "completed",
     "markdownFile": "/content/seaurl.md",
     "githubUrl": "https://github.com/dmi3midd/seaurl",
     "tags": [
@@ -15,8 +16,24 @@
     "id": "macauth",
     "title": "Macauth",
     "shortDescription": "A lightweight SSO service designed for centralized authentication.",
+    "status": "completed",
     "markdownFile": "/content/macauth.md",
     "githubUrl": "https://github.com/dmi3midd/macauth",
+    "tags": [
+      "Go",
+      "Docker",
+      "SSO",
+      "Authorization",
+      "JWT"
+    ]
+  },
+  {
+    "id": "lw-macauth",
+    "title": "Lightweight Macauth",
+    "shortDescription": "A lightweight SSO service designed for centralized authentication without database.",
+    "status": "completed",
+    "markdownFile": "/content/lw-macauth.md",
+    "githubUrl": "https://github.com/dmi3midd/lw-macauth",
     "tags": [
       "Go",
       "Docker",
@@ -29,6 +46,7 @@
     "id": "papelane-cli",
     "title": "Papelane CLI",
     "shortDescription": "A CLI utility for managing files using Telegram Bot API to store them in the cloud.",
+    "status": "completed",
     "markdownFile": "/content/pl-cli.md",
     "githubUrl": "https://github.com/dmi3midd/papelane-cli",
     "tags": [
