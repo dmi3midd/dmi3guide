@@ -1,5 +1,17 @@
 [
   {
+    "id": "dmi3guide",
+    "title": "dmi3Guide",
+    "shortDescription": "A portfolio of my pet projects.",
+    "status": "completed",
+    "markdownFile": "/content/dmi3guide.md",
+    "githubUrl": "https://github.com/dmi3midd/dmi3guide",
+    "tags": [
+      "TypeScript",
+      "React"
+    ]
+  },
+  {
     "id": "seaurl",
     "title": "SeaURL",
     "shortDescription": "A simple and fast URL shortener service.",
