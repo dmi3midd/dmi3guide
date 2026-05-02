@@ -1,6 +1,6 @@
 # Macauth
 
-## A lightweight SSO service designed for centralized authentication.
+## A lightweight stateless authentication service.
 
 
 ## 🚀 Quick Start

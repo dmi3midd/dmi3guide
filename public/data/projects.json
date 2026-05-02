@@ -30,7 +30,7 @@
   {
     "id": "lw-macauth",
     "title": "Lightweight Macauth",
-    "shortDescription": "A lightweight SSO service designed for centralized authentication without database.",
+    "shortDescription": "A lightweight stateless authentication service",
     "status": "completed",
     "markdownFile": "/content/lw-macauth.md",
     "githubUrl": "https://github.com/dmi3midd/lw-macauth",
