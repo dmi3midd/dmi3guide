@@ -57,13 +57,28 @@
   {
     "id": "papelane-cli",
     "title": "Papelane CLI",
-    "shortDescription": "A CLI utility for managing files using Telegram Bot API to store them in the cloud.",
+    "shortDescription": "A CLI utility for managing files using Local Telegram Bot API to store them in the cloud. Honestly, it's a little bit useless, but fun project. Check out Svitlopus for more features.",
     "status": "completed",
     "markdownFile": "/content/pl-cli.md",
     "githubUrl": "https://github.com/dmi3midd/papelane-cli",
     "tags": [
       "Go",
       "CLI",
+      "Storage",
+      "Cloud",
+      "Docker",
+      "Telegram Bot API"
+    ]
+  },
+  {
+    "id": "svitlopus",
+    "title": "Svitlopus",
+    "shortDescription": "A utility with Web UI for managing your photos, videos and documents using Local Telegram Bot API to store them in the cloud.",
+    "status": "in-progress",
+    "markdownFile": "/content/svitlopus.md",
+    "githubUrl": "https://github.com/dmi3midd/svitlopus",
+    "tags": [
+      "Go",
       "Storage",
       "Cloud",
       "Docker",
