@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Field {
   key: string;
@@ -14,27 +15,30 @@ interface FormConfig {
 }
 
 export const InteractiveCommandForm: React.FC<{ configStr: string }> = ({ configStr }) => {
-  const [config, setConfig] = useState<FormConfig | null>(null);
-  const [values, setValues] = useState<Record<string, string>>({});
-  const [copied, setCopied] = useState(false);
+  const { t } = useTranslation();
 
-  React.useEffect(() => {
+  const config = React.useMemo<FormConfig | null>(() => {
     try {
-      const parsed = JSON.parse(configStr);
-      setConfig(parsed);
-      // Initialize values
-      const initial: Record<string, string> = {};
-      parsed.fields.forEach((f: Field) => {
-        initial[f.key] = '';
-      });
-      setValues(initial);
+      return JSON.parse(configStr);
     } catch (e) {
       console.error("Failed to parse interactive form config", e);
+      return null;
     }
   }, [configStr]);
 
+  const [values, setValues] = useState<Record<string, string>>(() => {
+    if (!config) return {};
+    const initial: Record<string, string> = {};
+    config.fields.forEach((f: Field) => {
+      initial[f.key] = '';
+    });
+    return initial;
+  });
+
+  const [copied, setCopied] = useState(false);
+
   if (!config) {
-    return <div style={{ color: 'red' }}>Invalid interactive command configuration.</div>;
+    return <div style={{ color: 'red' }}>{t('commandForm.invalidConfig')}</div>;
   }
 
   const generatedCommand = `${config.baseCommand} ${config.fields
@@ -60,7 +64,7 @@ export const InteractiveCommandForm: React.FC<{ configStr: string }> = ({ config
       border: '1px solid var(--border)',
     }}>
       <h4 style={{ marginTop: 0, marginBottom: '16px', color: 'var(--text-main)', fontSize: '1.1rem' }}>
-        Interactive Command Generator
+        {t('commandForm.title')}
       </h4>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px', marginBottom: '20px' }}>
@@ -143,7 +147,7 @@ export const InteractiveCommandForm: React.FC<{ configStr: string }> = ({ config
           }}
           onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)')}
           onMouseOut={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')}
-          title="Copy command"
+          title={t('commandForm.copyTitle')}
         >
           {copied ? <Check size={16} color="#4ade80" /> : <Copy size={16} />}
         </button>

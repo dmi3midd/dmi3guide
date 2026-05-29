@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Loader } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useProjects } from '../hooks/useProjects';
 import githubIcon from '../assets/github.svg';
 
 const ProjectPage: React.FC = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [content, setContent] = useState<string>('');
@@ -33,7 +36,7 @@ const ProjectPage: React.FC = () => {
         const text = await response.text();
         setContent(text);
       } catch (error) {
-        setContent('# Error loading project details.\n\nSorry, we could not load the markdown file for this project.');
+        setContent(`# ${t('project.errorTitle')}\n\n${t('project.errorMessage')}`);
         console.error(error);
       } finally {
         setMarkdownLoading(false);
@@ -41,7 +44,7 @@ const ProjectPage: React.FC = () => {
     };
 
     fetchMarkdown();
-  }, [project, projectsLoading, navigate]);
+  }, [project, projectsLoading, navigate, t]);
 
   if (projectsLoading) {
     return (
@@ -78,29 +81,32 @@ const ProjectPage: React.FC = () => {
             fontWeight: 500,
           }}
         >
-          <ArrowLeft size={18} /> Back to list
+          <ArrowLeft size={18} /> {t('project.backToList')}
         </Link>
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            color: 'var(--text-secondary)',
-            fontWeight: 500,
-          }}
-        >
-          <img
-            src={githubIcon}
-            alt="GitHub"
-            width={18}
-            height={18}
-            style={{ filter: 'invert(1) opacity(0.8)' }}
-          />
-          View Source
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <LanguageSwitcher />
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: 'var(--text-secondary)',
+              fontWeight: 500,
+            }}
+          >
+            <img
+              src={githubIcon}
+              alt="GitHub"
+              width={18}
+              height={18}
+              style={{ filter: 'invert(1) opacity(0.8)' }}
+            />
+            {t('project.viewSource')}
+          </a>
+        </div>
       </div>
 
       {markdownLoading ? (

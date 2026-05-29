@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const NotFoundPage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -19,9 +22,9 @@ const NotFoundPage: React.FC = () => {
       }}
     >
       <h1 style={{ fontSize: '6rem', margin: '0 0 16px', color: 'var(--accent)' }}>404</h1>
-      <h2 style={{ fontSize: '2rem', marginBottom: '24px' }}>Page Not Found</h2>
+      <h2 style={{ fontSize: '2rem', marginBottom: '24px' }}>{t('notFound.title')}</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '32px', maxWidth: '400px' }}>
-        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+        {t('notFound.description')}
       </p>
       <Link 
         to="/"
@@ -34,7 +37,7 @@ const NotFoundPage: React.FC = () => {
           textDecoration: 'none'
         }}
       >
-        Go Home
+        {t('notFound.goHome')}
       </Link>
     </motion.div>
   );

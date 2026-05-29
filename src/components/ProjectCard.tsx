@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import type { Project } from '../types';
 import githubIcon from '../assets/github.svg';
 
@@ -10,6 +11,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       whileHover={{ y: -5, scale: 1.02 }}
@@ -25,7 +28,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-        <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{project.title}</h2>
+        <h2 style={{ fontSize: '1.5rem', margin: 0 }}>
+          {t(`projects.${project.id}.title`, project.title)}
+        </h2>
         {project.status && project.status !== 'completed' && (
           <span style={{
             fontSize: '0.75rem',
@@ -38,13 +43,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             whiteSpace: 'nowrap',
             marginLeft: '12px'
           }}>
-            {project.status === 'planned' ? 'Planned' : 'In Dev'}
+            {project.status === 'planned' ? t('project.statusPlanned') : t('project.statusInDev')}
           </span>
         )}
       </div>
 
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', flexGrow: 1, lineHeight: 1.6 }}>
-        {project.shortDescription}
+        {t(`projects.${project.id}.shortDescription`, project.shortDescription)}
       </p>
 
       {project.tags && (
@@ -76,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             fontWeight: 600,
           }}
         >
-          Open <ArrowRight size={18} />
+          {t('project.open')} <ArrowRight size={18} />
         </Link>
 
         <a

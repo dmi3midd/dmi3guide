@@ -1,0 +1,55 @@
+{
+  "common": {
+    "logo": "dmi3Guide",
+    "github": "GitHub"
+  },
+  "home": {
+    "subtitle": "A collection of my pet projects that you can use, fork or just check out.",
+    "error": "Error: {{error}}"
+  },
+  "project": {
+    "backToList": "Back to list",
+    "viewSource": "View Source",
+    "errorTitle": "Error loading project details.",
+    "errorMessage": "Sorry, we could not load the markdown file for this project.",
+    "open": "Open",
+    "statusPlanned": "Planned",
+    "statusInDev": "In Dev"
+  },
+  "commandForm": {
+    "title": "Interactive Command Generator",
+    "invalidConfig": "Invalid interactive command configuration.",
+    "copyTitle": "Copy command"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "goHome": "Go Home"
+  },
+  "projects": {
+    "dmi3guide": {
+      "title": "dmi3Guide",
+      "shortDescription": "A portfolio of my pet projects."
+    },
+    "seaurl": {
+      "title": "SeaURL",
+      "shortDescription": "A simple and fast URL shortener service."
+    },
+    "macauth": {
+      "title": "Macauth",
+      "shortDescription": "A lightweight SSO service designed for centralized authentication."
+    },
+    "lw-macauth": {
+      "title": "Lightweight Macauth",
+      "shortDescription": "A lightweight stateless authentication service"
+    },
+    "papelane-cli": {
+      "title": "Papelane CLI",
+      "shortDescription": "A CLI utility for managing files using Local Telegram Bot API to store them in the cloud. Honestly, it's a little bit useless, but fun project. Check out Svitlopus for more features."
+    },
+    "svitlopus": {
+      "title": "Svitlopus",
+      "shortDescription": "A utility with Web UI for managing your files using Local Telegram Bot API to store them in the cloud."
+    }
+  }
+}

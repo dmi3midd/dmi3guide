@@ -1,0 +1,55 @@
+{
+  "common": {
+    "logo": "dmi3Guide",
+    "github": "GitHub"
+  },
+  "home": {
+    "subtitle": "Колекція моїх пет-проєктів, які ви можете використовувати, копіювати або просто переглядати.",
+    "error": "Помилка: {{error}}"
+  },
+  "project": {
+    "backToList": "Назад до списку",
+    "viewSource": "Вихідний код",
+    "errorTitle": "Помилка завантаження деталей проєкту.",
+    "errorMessage": "Вибачте, нам не вдалося завантажити markdown-файл для цього проєкту.",
+    "open": "Відкрити",
+    "statusPlanned": "Планується",
+    "statusInDev": "В розробці"
+  },
+  "commandForm": {
+    "title": "Інтерактивний генератор команд",
+    "invalidConfig": "Некоректна конфігурація інтерактивної команди.",
+    "copyTitle": "Скопіювати команду"
+  },
+  "notFound": {
+    "title": "Сторінку не знайдено",
+    "description": "Можливо, сторінку, яку ви шукаєте, було видалено, змінено її назву або вона тимчасово недоступна.",
+    "goHome": "На головну"
+  },
+  "projects": {
+    "dmi3guide": {
+      "title": "dmi3Guide",
+      "shortDescription": "Портфоліо моїх пет-проєктів."
+    },
+    "seaurl": {
+      "title": "SeaURL",
+      "shortDescription": "Простий та швидкий сервіс для скорочення URL-адрес."
+    },
+    "macauth": {
+      "title": "Macauth",
+      "shortDescription": "Легковаговий сервіс SSO, розроблений для централізованої автентифікації."
+    },
+    "lw-macauth": {
+      "title": "Lightweight Macauth",
+      "shortDescription": "Легковаговий stateless сервіс автентифікації."
+    },
+    "papelane-cli": {
+      "title": "Papelane CLI",
+      "shortDescription": "CLI утиліта для керування файлами за допомогою локального Telegram Bot API для їх зберігання в хмарі. Чесно кажучи, проєкт трохи марний, але веселий. Спробуйте Svitlopus для отримання більшої кількості функцій."
+    },
+    "svitlopus": {
+      "title": "Svitlopus",
+      "shortDescription": "Утиліта з веб-інтерфейсом для керування вашими файлами з використанням локального Telegram Bot API для їх зберігання в хмарі."
+    }
+  }
+}

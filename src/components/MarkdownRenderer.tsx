@@ -15,7 +15,7 @@ const CodeBlock = ({ node, inline, className, children, ...props }: any) => {
   const codeString = String(children).replace(/\n$/, '');
 
   if (!inline && match && match[1] === 'interactive-command') {
-    return <InteractiveCommandForm configStr={codeString} />;
+    return <InteractiveCommandForm key={codeString} configStr={codeString} />;
   }
 
   const handleCopy = () => {

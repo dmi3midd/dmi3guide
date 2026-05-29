@@ -1,11 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Loader } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import githubIcon from '../assets/github.svg';
 import ProjectList from '../components/ProjectList';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useProjects } from '../hooks/useProjects';
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
   const { projects, loading, error } = useProjects();
 
   return (
@@ -33,7 +36,7 @@ const HomePage: React.FC = () => {
           transition={{ delay: 0.1, duration: 0.5 }}
           style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
         >
-          dmi3Guide
+          {t('common.logo')}
         </motion.div>
 
         <motion.div
@@ -42,12 +45,12 @@ const HomePage: React.FC = () => {
           transition={{ delay: 0.1, duration: 0.5 }}
           style={{ display: 'flex', gap: '16px', alignItems: 'center' }}
         >
-          {/* Future links can be added here */}
+          <LanguageSwitcher />
           <a
             href="https://github.com/dmi3midd"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub Profile"
+            aria-label={t('common.github')}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -81,7 +84,7 @@ const HomePage: React.FC = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}
           >
-            A collection of my pet projects that you can use, fork or just check out.
+            {t('home.subtitle')}
           </motion.p>
         </div>
 
@@ -96,7 +99,7 @@ const HomePage: React.FC = () => {
               </motion.div>
             </div>
           ) : error ? (
-            <div style={{ textAlign: 'center', color: 'red' }}>Error: {error}</div>
+            <div style={{ textAlign: 'center', color: 'red' }}>{t('home.error', { error })}</div>
           ) : (
             <ProjectList projects={projects} />
           )}
