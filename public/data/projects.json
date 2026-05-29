@@ -48,7 +48,7 @@
     "id": "svitlopus",
     "title": "Svitlopus",
     "shortDescription": "A utility with Web UI for managing your files using Local Telegram Bot API to store them in the cloud.",
-    "status": "completed",
+    "status": "in development",
     "markdownFile": "/content/svitlopus.md",
     "githubUrl": "https://github.com/dmi3midd/svitlopus",
     "tags": [
