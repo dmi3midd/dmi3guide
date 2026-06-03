@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Copy, Check } from 'lucide-react';
@@ -96,6 +97,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
       margin: '0 auto',
     }}>
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           h1: ({node, ...props}) => <h1 style={{ color: 'var(--text-main)', marginTop: '2em', marginBottom: '1em', fontSize: '2.5rem' }} {...props} />,
           h2: ({node, ...props}) => <h2 style={{ color: 'var(--text-main)', marginTop: '1.8em', marginBottom: '0.8em', fontSize: '1.8rem', borderBottom: '1px solid var(--bg-secondary)', paddingBottom: '0.3em' }} {...props} />,
@@ -117,6 +119,57 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                 padding: '1em'
               }} 
               {...props} 
+            />
+          ),
+          table: ({node, ...props}) => (
+            <div style={{ overflowX: 'auto', margin: '1.5em 0' }}>
+              <table
+                style={{
+                  width: '100%',
+                  borderCollapse: 'collapse',
+                  fontSize: '0.95rem',
+                }}
+                {...props}
+              />
+            </div>
+          ),
+          thead: ({node, ...props}) => (
+            <thead
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+              }}
+              {...props}
+            />
+          ),
+          th: ({node, ...props}) => (
+            <th
+              style={{
+                padding: '0.75em 1em',
+                textAlign: 'left',
+                color: 'var(--text-main)',
+                fontWeight: 600,
+                borderBottom: '2px solid var(--accent)',
+              }}
+              {...props}
+            />
+          ),
+          td: ({node, ...props}) => (
+            <td
+              style={{
+                padding: '0.75em 1em',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+              }}
+              {...props}
+            />
+          ),
+          tr: ({node, ...props}) => (
+            <tr
+              style={{
+                transition: 'background 0.2s',
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)')}
+              onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}
+              {...props}
             />
           ),
           code: CodeBlock

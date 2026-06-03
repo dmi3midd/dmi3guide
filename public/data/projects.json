@@ -6,7 +6,10 @@
     "status": "completed",
     "markdownFile": "/content/dmi3guide.md",
     "githubUrl": "https://github.com/dmi3midd/dmi3guide",
-    "tags": ["TypeScript", "React"]
+    "tags": [
+      "TypeScript",
+      "React"
+    ]
   },
   {
     "id": "seaurl",
@@ -15,7 +18,11 @@
     "status": "completed",
     "markdownFile": "/content/seaurl.md",
     "githubUrl": "https://github.com/dmi3midd/seaurl",
-    "tags": ["Go", "Docker", "URL Shortener"]
+    "tags": [
+      "Go",
+      "Docker",
+      "URL Shortener"
+    ]
   },
   {
     "id": "macauth",
@@ -24,7 +31,13 @@
     "status": "completed",
     "markdownFile": "/content/macauth.md",
     "githubUrl": "https://github.com/dmi3midd/macauth",
-    "tags": ["Go", "Docker", "SSO", "Authorization", "JWT"]
+    "tags": [
+      "Go",
+      "Docker",
+      "SSO",
+      "Authorization",
+      "JWT"
+    ]
   },
   {
     "id": "lw-macauth",
@@ -33,7 +46,12 @@
     "status": "completed",
     "markdownFile": "/content/lw-macauth.md",
     "githubUrl": "https://github.com/dmi3midd/lw-macauth",
-    "tags": ["Go", "Docker", "Authorization", "JWT"]
+    "tags": [
+      "Go",
+      "Docker",
+      "Authorization",
+      "JWT"
+    ]
   },
   {
     "id": "papelane-cli",
@@ -42,7 +60,29 @@
     "status": "completed",
     "markdownFile": "/content/pl-cli.md",
     "githubUrl": "https://github.com/dmi3midd/papelane-cli",
-    "tags": ["Go", "CLI", "Storage", "Cloud", "Docker", "Telegram Bot API"]
+    "tags": [
+      "Go",
+      "CLI",
+      "Storage",
+      "Cloud",
+      "Docker",
+      "Telegram Bot API"
+    ]
+  },
+  {
+    "id": "carrpigeo",
+    "title": "Carrpigeo",
+    "shortDescription": "A lightweight email sending API built with Go. It sends emails via SMTP and stores every sent message in a PostgreSQL database.",
+    "status": "completed",
+    "markdownFile": "/content/carrpigeo.md",
+    "githubUrl": "https://github.com/dmi3midd/carrpigeo",
+    "tags": [
+      "Go",
+      "Docker",
+      "Email",
+      "SMTP",
+      "PostgreSQL"
+    ]
   },
   {
     "id": "svitlopus",
